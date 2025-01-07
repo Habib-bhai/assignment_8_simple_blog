@@ -4,6 +4,7 @@ import React from 'react'
 import { useSearch } from '@/app/contexts/searchContext' 
 import BlogCard from '../blogCard/BlogCard'
 import { urlFor } from '@/sanity/lib/image'
+import { fetchedData } from '@/app/blog/page'
 
 export default function SearchResults() {
     const { searchTerm, filteredData } = useSearch()
@@ -16,7 +17,7 @@ export default function SearchResults() {
         <div className='bg-[#1a202c] w-full  mx-auto mt-8'>
             {filteredData.length > 0 ? (
                 <div className='bg-[#1a202c] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center place-content-center gap-10 md:gap-5'>
-                    {filteredData.map((item: any) => (
+                    {filteredData.map((item: fetchedData) => (
                         <BlogCard
                             title={item.title}
                             imageSrc={urlFor(item.mainImage).url()}

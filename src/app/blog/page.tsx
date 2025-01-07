@@ -5,7 +5,7 @@ import React from 'react'
 
 
 
-interface fetchedData {
+export interface fetchedData {
     title: string,
     mainImage: string,
     author: string,

@@ -1,8 +1,9 @@
 import Image from 'next/image'
 import { Button } from "@/components/ui/button"
 import { Inter } from "next/font/google"
-import { GraduationCap, BookOpen, Users } from 'lucide-react'
+import { GraduationCap, BookOpen, Users, LucideProps } from 'lucide-react'
 import Link from 'next/link'
+import { ForwardRefExoticComponent, RefAttributes } from 'react'
 
 const inter = Inter({
   subsets: ["latin"],
@@ -67,7 +68,7 @@ function StatsSection() {
 }
 
 
-function Stat({ icon: Icon, value, label }: { icon: any; value: string; label: string }) {
+function Stat({ icon: Icon, value, label }: { icon: ForwardRefExoticComponent<Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>>; value: string; label: string }) {
   return (
     <div className="text-center space-y-2">
       <div className="flex justify-center">

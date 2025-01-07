@@ -63,7 +63,20 @@ export default function Header() {
                         <Link href={"/"}>Home</Link>
                         <Link href={"/blog"}>Blog</Link>
                         <Link href={"/contact"}>Contact</Link>
+
+                        {/* serach input */}
+                        <div className={`${inter.className} font-bold flex justify-center items-center h-[50px] px-5 w-[280px] bg-white rounded-md  `}>
+                            <input
+                                type="text"
+                                className='text-[#cbd5e0] text-xl h-full w-full outline-none bg-transparent'
+                                placeholder='Discover'
+                                value={searchTerm}
+                                onChange={handleInputChange}
+                            />
+                            <Image src={"/Images/header/serach.svg"} alt='search' height={30} width={30} />
+                        </div>
                     </div>
+                        
                 </SheetContent>
             </Sheet>
 

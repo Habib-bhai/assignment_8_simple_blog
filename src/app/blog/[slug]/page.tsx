@@ -1,10 +1,9 @@
 import { client } from "@/sanity/lib/client"
 import { urlFor } from "@/sanity/lib/image";
 import { PortableText } from '@portabletext/react'
-import Link from "next/link";
 import Image from "next/image";
 import React from "react";
-import { PortableTextComponentProps, PortableTextBlock } from '@portabletext/react';
+import { PortableTextComponentProps, PortableTextBlock, PortableTextMarkComponentProps  } from '@portabletext/react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { oneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 
@@ -107,7 +106,7 @@ interface CodeBlock {
   
    const myPortableTextComponents = {
     types: {
-      image: ({ value }: { value: any }) => (
+      image: ({ value }: { value: {alt: string} }) => (
         <Image 
           src={urlFor(value).url()} 
           alt={value.alt || ''} 
@@ -158,12 +157,12 @@ interface CodeBlock {
       ),
     },
     marks: {
-      code: ({ children }:any) => (
+      code: ({ children }: PortableTextMarkComponentProps<any> /* eslint-disable-line @typescript-eslint/no-explicit-any */) => (
         <code className="bg-gray-100 dark:bg-gray-800 rounded px-1 py-0.5 font-mono text-sm">
           {children}
         </code>
       ),
-      link: ({ value, children }:any) => {
+      link: ({ value, children }: PortableTextMarkComponentProps<any>/* eslint-disable-line @typescript-eslint/no-explicit-any */) => {
         const target = (value?.href || '').startsWith('http') ? '_blank' : undefined
         return (
           <a 
