@@ -26,7 +26,7 @@ export default function Footer() {
       <div className='col-span-1 row-span-5 flex flex-col justify-center items-start gap-4 text-white'>
 
         <h1 className='text-xl font-semibold'> Quick Links</h1>
-        <Link href={"/about"}>About Us</Link>
+        <Link href={"/blog/what-is-next-js"}>What is Next.js</Link>
         <Link href={"/contact"}>Contact Us</Link>
         <Link href={"/blog"}>Blog</Link>
       </div>
@@ -35,15 +35,21 @@ export default function Footer() {
       <div className='col-span-1 row-span-5 flex flex-col justify-center items-start gap-4 text-white'>
         <h1 className='text-xl font-semibold'> Social Medias</h1>
         <p className='flex gap-3'>
-          <Image src={"/Images/github.svg"} alt='github' height={30} width={30} /> github
+          <Link href={"/https://github.com/Habib-bhai"}>
+            <Image src={"/Images/github.svg"} alt='github' height={30} width={30} /> github
+          </Link>
         </p>
         <p className='flex gap-3'>
-          <Image src={"/Images/linkedin.svg"} alt='github' height={20} width={20} />
-          linkedin
+          <Link href={"/https://www.linkedin.com/in/habib007ab92282/"}>
+            <Image src={"/Images/linkedin.svg"} alt='github' height={20} width={20} />
+            linkedin
+          </Link>
         </p>
         <p className='flex gap-3'>
-          <Image src={"/Images/twitter.svg"} alt='github' height={20} width={20} />
-          twitter
+          <Link href={"/"}>
+            <Image src={"/Images/twitter.svg"} alt='github' height={20} width={20} />
+            twitter
+          </Link>
         </p>
       </div>
 

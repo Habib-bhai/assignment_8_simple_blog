@@ -37,18 +37,20 @@ export const postType = defineType({
         }
       ]
     }),
-    defineField({
-      name: 'categories',
-      type: 'array',
-      of: [defineArrayMember({type: 'reference', to: {type: 'category'}})],
-    }),
+      defineField({
+        name: "excerpt",
+        type: "string"
+      }),
+
     defineField({
       name: 'publishedAt',
       type: 'datetime',
     }),
-    defineField({
+    defineField( {
       name: 'body',
-      type: 'blockContent',
+      title: 'Body',
+      type: 'array',
+      of: [{ type: 'block' }, { type: 'codeBlock' }]
     }),
   ],
   preview: {

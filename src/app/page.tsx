@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { Button } from "@/components/ui/button"
 import { Inter } from "next/font/google"
 import { GraduationCap, BookOpen, Users } from 'lucide-react'
+import Link from 'next/link'
 
 const inter = Inter({
   subsets: ["latin"],
@@ -15,7 +16,6 @@ export default function Home() {
 
       {/* hero section */}
 
-
       <div className=" my-20 w-full flex justify-center items-center rounded-xl">
         <div className="py-10 lg:py-0 w-[80%] lg:h-[550px] flex lg:flex-row flex-col justify-center items-center bg-[#2d3748] gap-14 lg:gap-0">
 
@@ -27,8 +27,12 @@ export default function Home() {
             <p className='md:w-[500px]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex assumenda, quas ipsam blanditiis consequuntur odio. Id iste repudiandae in reiciendis facere tempora cupiditate, veritatis corporis quas eligendi magnam quisquam quam.</p>
 
             <div className='flex gap-8'>
-              <Button variant={"secondary"} >Start Learning</Button>
-              <Button variant={"destructive"} className='bg-blue-500' >Contact Us</Button>
+              <Link href={"/blog"}>
+                <Button variant={"secondary"} >Start Learning</Button>
+              </Link>
+              <Link href={"/contact"}>
+                <Button variant={"destructive"} className='bg-blue-500' >Contact Us</Button>
+              </Link>
             </div>
 
           </div>
@@ -37,8 +41,8 @@ export default function Home() {
           <div >
             <Image src={"/Images/myImg.png"} alt='my image' height={300} width={500}
               className='hidden lg:block h-[550px] w-[500px] object-cover '
-               />
-               <StatsSection />
+            />
+            <StatsSection />
           </div>
 
         </div>

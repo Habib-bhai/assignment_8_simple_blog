@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/sheet"
 
 import { Inter } from "next/font/google"
+import { useSearch } from '@/app/contexts/searchContext'
 
 const inter = Inter({
     subsets: ["latin"],
@@ -16,15 +17,29 @@ const inter = Inter({
 })
 
 export default function Header() {
+
+    const { searchTerm, setSearchTerm } = useSearch()
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchTerm(e.target.value)
+    }
+
     return (
         <div className='w-screen flex justify-around items-center py-6 px-8 bg-[#2d3748] text-background '>
 
-            <Image src={"/Images/header/logo-dark.png"} alt='logo' height={30} width={150} className='h-[30px] w-[150px] object-contain' />
-
+            <Link href={"/"}>
+                <Image src={"/Images/header/logo-dark.png"} alt='logo' height={30} width={150} className='h-[30px] w-[150px] object-contain' />
+            </Link>
 
             {/* serach input */}
             <div className={`${inter.className} font-bold  hidden md:flex justify-center items-center h-[50px] px-5 w-[320px] bg-[#718096] rounded-md  `}>
-                <input type="text" className='text-[#cbd5e0] text-xl h-full outline-none bg-transparent' placeholder='Dicover' />
+                <input
+                    type="text"
+                    className='text-[#cbd5e0] text-xl h-full w-full outline-none bg-transparent'
+                    placeholder='Discover'
+                    value={searchTerm}
+                    onChange={handleInputChange}
+                />
                 <Image src={"/Images/header/serach.svg"} alt='search' height={30} width={30} />
             </div>
 
@@ -34,9 +49,6 @@ export default function Header() {
                 <Link href={"/blog"}>Blog</Link>
                 <Link href={"/contact"}>Contact</Link>
             </div>
-
-
-
 
             <Sheet >
                 <SheetTrigger className='block md:hidden '>
